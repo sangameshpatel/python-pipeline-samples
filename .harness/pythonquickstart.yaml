@@ -62,7 +62,7 @@ pipeline:
                     repo: sangameshhub/push-from-harness
                     tags:
                       - latest
-                    dockerfile: pythondockerfile
+                    dockerfile: Dockerfile
     - stage:
         name: integration test
         identifier: integration_test
