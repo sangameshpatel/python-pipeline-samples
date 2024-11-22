@@ -89,7 +89,7 @@ pipeline:
                   identifier: python_server
                   spec:
                     connectorRef: docker_quickstart
-                    image: python-pipeline-samples
+                    image: python
                     shell: Sh
                     command: python3 /python-pipeline-samples/app.py
                   description: server connection
