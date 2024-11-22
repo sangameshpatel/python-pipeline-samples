@@ -103,4 +103,4 @@ pipeline:
                     shell: Sh
                     command: |-
                       sleep 10
-                      curl localhost:5000
+                      curl 172.19.1.159:5000
