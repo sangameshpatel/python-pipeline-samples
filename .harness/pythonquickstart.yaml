@@ -31,7 +31,7 @@ pipeline:
                   name: code compile
                   identifier: code_compile
                   spec:
-                    connectorRef: docker_connect
+                    connectorRef: docker_quickstart
                     image: python:3.10.6-alpine
                     shell: Sh
                     command: python -m compileall ./
@@ -40,7 +40,7 @@ pipeline:
                   name: create Docker file
                   identifier: create_Docker_file
                   spec:
-                    connectorRef: docker_connect
+                    connectorRef: docker_quickstart
                     image: alpine
                     shell: Sh
                     command: |-
@@ -59,10 +59,10 @@ pipeline:
                   identifier: Build_and_push_image_to_docker_hub
                   spec:
                     connectorRef: docker_connect
-                    repo: sangameshhub/push-from-harness
+                    repo: sangameshhub/harness-ci
                     tags:
-                      - latest
-                    dockerfile: Dockerfile
+                      - latest1
+                    dockerfile: pythondockerfile
     - stage:
         name: integration test
         identifier: integration_test
@@ -88,7 +88,7 @@ pipeline:
                   name: python server
                   identifier: python_server
                   spec:
-                    connectorRef: docker_connect
+                    connectorRef: docker_quickstart
                     image: python-pipeline-samples
                     shell: Sh
                     command: python3 /python-pipeline-samples/app.py
@@ -98,7 +98,7 @@ pipeline:
                   name: test connection to server
                   identifier: test_connection_to_server
                   spec:
-                    connectorRef: docker_connect
+                    connectorRef: docker_quickstart
                     image: curlimages/curl:7.73.0
                     shell: Sh
                     command: |-
